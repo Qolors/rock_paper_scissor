@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>JS</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<body>
+	<script>
+	
+		function computerChoice() {
+			let list = ["rock", "paper", "scissor"];
+			let random = list[Math.floor(Math.random()*list.length)];
+			return(random);
+			}
+		
+		function playRound(computerPick, playerChoice) {
+			alert("You played - " + playerChoice + ", Computer played - " + computerPick + "!");
+			if (playerChoice.toLowerCase() == "rock") {
+				if (computerPick == "scissor") {
+					alert("Player Wins this Round!");
+					return(++pwin);
+					}
+				else if (computerPick == playerChoice) {
+					alert("Tie!");
+					return;
+				}
+				else {
+					alert("Computer Wins this Round!");
+					return(++cwin);
+					}
+				}
+				
+			else if (playerChoice.toLowerCase() == "paper") {
+				if (computerPick == "rock") {
+					alert("Player Wins this Round!");
+					return(++pwin);
+					}
+				else if (computerPick == playerChoice) {
+					alert("Tie!");
+					return;
+				}
+				else {
+					alert("Computer Wins this Round!");
+					return(++cwin);
+					}
+				}
+				
+			else if (playerChoice.toLowerCase() == "scissor") {
+				if (computerPick == "paper") {
+					alert("Player Wins this Round!");
+					return(++pwin);
+					}
+				else if (computerPick == playerChoice) {
+					alert("Tie!");
+					return;
+				}
+				else {
+					alert("Computer Wins this Round!");
+					return(++cwin);
+					}
+				}
+			
+			else {
+				alert("Another wrong weapon choice?! Computer automatically wins this round!");
+				return(++cwin);
+				}
+				
+			}
+		
+		let pwin = 0;
+		let cwin = 0;
+		var weapons = ["rock", "paper", "scissor"]
+		alert("Rock Paper Scissors best of 5!");
+		
+		for (let i = 0; i < 5; i++) {
+			let playerChoice = prompt("Pick your weapon!");
+			if (weapons.includes(playerChoice.toLowerCase())) {
+				const computerPick = computerChoice();
+				playRound(computerPick, playerChoice);
+			}
+			else {
+				alert("Invalid Weapon choice! Try again!");
+				let playerChoice = prompt("Pick your weapon!");
+				const computerPick = computerChoice();
+				playRound(computerPick, playerChoice);
+			}
+		}
+		if (pwin > cwin) {
+			alert("Player Wins " + pwin + " - " + cwin + "!");
+		}
+		else if (pwin < cwin) {
+			alert("Computer Wins " + cwin + " - " + pwin + "!");
+		}
+	</script>
+</body>
+</html>
