@@ -1,0 +1,106 @@
+body {
+	display: grid;
+	width: 100%;
+	height: 100vh;
+	align-items: center;
+	justify-items: center;
+	background-color: black;
+}
+
+.child-container {
+	margin: 0;
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	width: 75%;
+	height: 75%;
+	justify-items: center;
+	grid-template-rows: 1fr 1fr;
+	border: 2px solid green;
+	gap: 15px;
+}
+
+.weapons {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	width: 100%;
+	height: 100%;
+	justify-items: center;
+	align-items: center;
+	gap: 10px;
+}
+
+.weapon-box {
+	background-color: #663A82;
+	border-radius: 22px;
+	width: 90%;
+	max-width: 250px;
+	max-height: 250px;
+	height: 90%;
+	border: 3px solid white;
+	object-position: contain;
+	padding: 5px;
+}
+
+.dialog {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	width: 95%;
+	justify-items: center;
+	height: 100%;
+	color: white;
+	gap: 5px;
+}
+
+.player {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr 3fr;
+	width: 100%;
+	height: 100%;
+	justify-items: center;
+	text-align: center;
+	align-items: center;
+}
+
+.computer {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr 3fr;
+	width: 100%;
+	height: 100%;
+}
+
+.player-points {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+	width: 15px;
+	height: 100%;
+	gap: 2px;
+}
+
+.p1 {
+	height: 100%;
+	width: 100%;
+	border: 1px solid red;
+}
+.p2 {
+	height: 100%;
+	width: 100%;
+	border: 1px solid red;
+}
+.p3 {
+	height: 100%;
+	width: 100%;
+	border: 1px solid red;
+}
+.p4 {
+	height: 100%;
+	width: 100%;
+	border: 1px solid red;
+}
+.p5 {
+	height: 100%;
+	width: 100%;
+	border: 1px solid red;
+}

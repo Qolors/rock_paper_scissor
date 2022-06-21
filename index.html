@@ -1,10 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>JS</title>
+<link rel=stylesheet href="styles.css">
+<title>Rock Paper Scissor!</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
 <body>
+	<div class="child-container">
+		<div class="dialog">
+			<div class="player">
+				<h3>Player</h3>
+				<div class="player-points">
+					<div class="p1"></div>
+					<div class="p2"></div>
+					<div class="p3"></div>
+					<div class="p4"></div>
+					<div class="p5"></div>
+				</div>
+			</div>
+			<div class="computer"></div>
+		</div>
+		<div class="weapons">
+			<img src="rock.png" class="weapon-box"></img>
+			<img src="paper.png" class="weapon-box"></img>
+			<img src="scissor.png" class="weapon-box"></img>
+		</div>
+
+	</div>
+
 	<script>
 	
 		function computerChoice() {
@@ -70,21 +94,12 @@
 		let pwin = 0;
 		let cwin = 0;
 		var weapons = ["rock", "paper", "scissor"]
-		alert("Rock Paper Scissors best of 5!");
 		
-		for (let i = 0; i < 5; i++) {
-			let playerChoice = prompt("Pick your weapon!");
-			if (weapons.includes(playerChoice.toLowerCase())) {
-				const computerPick = computerChoice();
-				playRound(computerPick, playerChoice);
+		let playerChoice = "";
+		if (weapons.includes(playerChoice.toLowerCase())) {
+			const computerPick = computerChoice();
+			playRound(computerPick, playerChoice);
 			}
-			else {
-				alert("Invalid Weapon choice! Try again!");
-				let playerChoice = prompt("Pick your weapon!");
-				const computerPick = computerChoice();
-				playRound(computerPick, playerChoice);
-			}
-		}
 		if (pwin > cwin) {
 			alert("Player Wins " + pwin + " - " + cwin + "!");
 		}
