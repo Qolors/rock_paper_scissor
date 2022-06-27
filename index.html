@@ -8,19 +8,21 @@
 	<body>
 		<div class="master">
 			<div class="display">
-				<h2>Player Wins with Scissor!</h2>
+				<h2 id="text1">Rock Paper Scissors!</h2>
+				<h2 id="text2">Choose your Weapon!</h2>
+				<h2 id="text3"></h2>
 			</div>
 			<div class="select">
 				<div class="child">
-					<div class="button">Rock</div>
+					<button onclick="clicked('Rock')" class="button">Rock</button>
 					<img src="arrow.png" class="arrows"></img>
 				</div>
 				<div class="child">
-					<div class="button">Paper</div>
+					<button onclick="clicked('Paper')" class="button">Paper</button>
 					<img src="arrow.png" class="arrows"></img>
 				</div>
 				<div class="child">
-					<div class="button">Scissors</div>
+					<button onclick="clicked('Scissors')" class="button">Scissors</button>
 					<img src="arrow.png" class="arrows"></img>
 				</div>
 			
@@ -29,18 +31,105 @@
 				<div class="score-card">
 					<h3>Player 1</h3>
 					<div class="progress-bar">
-						<div class="points"></div>
+						<div id="p1" class="points"></div>
 					</div>
 				</div>
 				<div class="score-card">
 					<h3>Computer</h3>
 					<div class="progress-bar">
-						<div class="points"></div>
+						<div id="cpu" class="points"></div>
 					</div>
 				</div>
 			</div>
 		</div>
+		
 
+		<script>
+			//Player is 1 Computer is 0 Tie is 2
+			var width = 0;
+			var cwidth = 0;
+			function fight(player, comp) {
+						if (player === 'Rock') {
+									if (comp === 'Paper') {
+												return 0;
+												};
+									if (comp === 'Rock') {
+												return 2;
+												};
+									if (comp === 'Scissors') {
+												return 1;
+												};
+									};
+
+						if (player === 'Paper') {
+									if (comp === 'Paper') {
+												return 2;
+												};
+									if (comp === 'Rock') {
+												return 1;
+												};
+									if (comp === 'Scissors') {
+												return 0;
+												};
+									};
+
+						if (player === 'Scissors') {
+									if (comp === 'Paper') {
+												return 1;
+												};
+									if (comp === 'Rock') {
+												return 0;
+												};
+									if (comp === 'Scissors') {
+												return 2;
+												};
+									};
+			}
+
+			function clicked(input) {
+						var weapons = ['Rock', 'Paper', 'Scissors'];
+						var compChoice = weapons[Math.floor(Math.random() * weapons.length)];
+						let playerChoice = input;
+						var results = "";
+						
+						if (fight(playerChoice, compChoice) == 1) {
+										results = "Player Wins this Round!";
+										text3.style.color = "green";
+										if (width + 20 == 100) {
+														width == 100;
+														alert("YOU WON!")
+
+										} else {
+												width += 20;
+										}
+									
+										p1.style.width = width + "%";
+									};
+						if (fight(playerChoice, compChoice) == 2) {
+										results = "Tie Round!";
+										text3.style.color = "silver";
+									};
+						if (fight(playerChoice, compChoice) == 0) {
+										results = "Computer Wins this Round!";
+										text3.style.color = "red";
+										if (cwidth + 20 == 100) {
+														cwidth == 100;
+														alert("CPU WON!")
+										} else {
+												cwidth += 20;
+										}
+										cpu.style.width = cwidth + "%";
+
+									};								
+						document.getElementById("text1").innerHTML = "Player picked " + playerChoice;
+						setTimeout(1000);
+						document.getElementById("text2").innerHTML = "Computer picked " + compChoice;
+						setTimeout(1000);
+						document.getElementById("text3").innerHTML = results;
+			}
+
+						
+		</script>
 	</body>
 
 
