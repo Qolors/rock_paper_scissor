@@ -1,111 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<link rel=stylesheet href="styles.css">
-<title>Rock Paper Scissor!</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
-	<div class="child-container">
-		<div class="dialog">
-			<div class="player">
-				<h3>Player</h3>
-				<div class="player-points">
-					<div class="p1"></div>
-					<div class="p2"></div>
-					<div class="p3"></div>
-					<div class="p4"></div>
-					<div class="p5"></div>
+<html lang ="en">
+	<head>
+		<link rel="stylesheet" href="styles.css">
+		<meta name="viewport" content="width=device-width, initial scale=1.0">
+		<title>Rock Paper Scissors!</title>
+	</head>
+	<body>
+		<div class="master">
+			<div class="display">
+				<h2>Player Wins with Scissor!</h2>
+			</div>
+			<div class="select">
+				<div class="child">
+					<div class="button">Rock</div>
+					<img src="arrow.png" class="arrows"></img>
+				</div>
+				<div class="child">
+					<div class="button">Paper</div>
+					<img src="arrow.png" class="arrows"></img>
+				</div>
+				<div class="child">
+					<div class="button">Scissors</div>
+					<img src="arrow.png" class="arrows"></img>
+				</div>
+			
+			</div>
+			<div class="scores">
+				<div class="score-card">
+					<h3>Player 1</h3>
+					<div class="progress-bar">
+						<div class="points"></div>
+					</div>
+				</div>
+				<div class="score-card">
+					<h3>Computer</h3>
+					<div class="progress-bar">
+						<div class="points"></div>
+					</div>
 				</div>
 			</div>
-			<div class="computer"></div>
-		</div>
-		<div class="weapons">
-			<img src="rock.png" class="weapon-box"></img>
-			<img src="paper.png" class="weapon-box"></img>
-			<img src="scissor.png" class="weapon-box"></img>
 		</div>
 
-	</div>
+	</body>
 
-	<script>
-	
-		function computerChoice() {
-			let list = ["rock", "paper", "scissor"];
-			let random = list[Math.floor(Math.random()*list.length)];
-			return(random);
-			}
-		
-		function playRound(computerPick, playerChoice) {
-			alert("You played - " + playerChoice + ", Computer played - " + computerPick + "!");
-			if (playerChoice.toLowerCase() == "rock") {
-				if (computerPick == "scissor") {
-					alert("Player Wins this Round!");
-					return(++pwin);
-					}
-				else if (computerPick == playerChoice) {
-					alert("Tie!");
-					return;
-				}
-				else {
-					alert("Computer Wins this Round!");
-					return(++cwin);
-					}
-				}
-				
-			else if (playerChoice.toLowerCase() == "paper") {
-				if (computerPick == "rock") {
-					alert("Player Wins this Round!");
-					return(++pwin);
-					}
-				else if (computerPick == playerChoice) {
-					alert("Tie!");
-					return;
-				}
-				else {
-					alert("Computer Wins this Round!");
-					return(++cwin);
-					}
-				}
-				
-			else if (playerChoice.toLowerCase() == "scissor") {
-				if (computerPick == "paper") {
-					alert("Player Wins this Round!");
-					return(++pwin);
-					}
-				else if (computerPick == playerChoice) {
-					alert("Tie!");
-					return;
-				}
-				else {
-					alert("Computer Wins this Round!");
-					return(++cwin);
-					}
-				}
-			
-			else {
-				alert("Another wrong weapon choice?! Computer automatically wins this round!");
-				return(++cwin);
-				}
-				
-			}
-		
-		let pwin = 0;
-		let cwin = 0;
-		var weapons = ["rock", "paper", "scissor"]
-		
-		let playerChoice = "";
-		if (weapons.includes(playerChoice.toLowerCase())) {
-			const computerPick = computerChoice();
-			playRound(computerPick, playerChoice);
-			}
-		if (pwin > cwin) {
-			alert("Player Wins " + pwin + " - " + cwin + "!");
-		}
-		else if (pwin < cwin) {
-			alert("Computer Wins " + cwin + " - " + pwin + "!");
-		}
-	</script>
-</body>
+
 </html>
