@@ -12,8 +12,8 @@
 		<div class="master">
 			<div class="display">
 				<h2 id="text1">Rock Paper Scissors!</h2>
-				<h2 id="text2">Choose your Weapon!</h2>
-				<h2 id="text3"></h2>
+				<h2 id="text2">First to 5 Wins!</h2>
+				<h2 id="text3">Choose your Weapon!</h2>
 			</div>
 			<div class="select">
 				<div class="child">
@@ -48,8 +48,8 @@
 
  			 <!-- Modal content -->
   				<div class="modal-content">
-    					<span class="close">&times;</span>
-    					<div class="Winner"></div>
+    					<div class="close" type="button">&times;</div>
+    					<h2 id="Winner">Good Game!</h2>
   				</div>
 
 			</div>
@@ -60,14 +60,17 @@
 			//Player is 1 Computer is 0 Tie is 2
 			var width = 0;
 			var cwidth = 0;
+			const endbutton = document.getElementsByClassName("close");
+			function reset() {
+				window.location.reload();
+			}
 			function fight(player, comp) {
 						if (player === 'Rock') {
 									if (comp === 'Paper') {
 												return 0;
 												};
 									if (comp === 'Rock') {
-												return 2;
-												};
+												return 2; };
 									if (comp === 'Scissors') {
 												return 1;
 												};
@@ -112,7 +115,7 @@
 														p1.style.width = width + "%";
 														var modal = document.getElementById("myModal");
 														modal.style.display = "block";
-														document.getElementById("Winner").innerHHTML = "You Win! Huzzah!";
+														document.getElementById("Winner").innerHTML = "You Win! Huzzah!";
 
 										} else {
 												width += 20;
@@ -132,7 +135,7 @@
 														modal.style.display = "block";
 														cwidth = 100;
 														cpu.style.width = cwidth + "%";
-														document.getElementById("Winner").innerHHTML = "Computer Wins! Boohoo!";
+														document.getElementById("Winner").innerHTML = "Computer Wins! Boohoo!";
 										} else {
 												cwidth += 20;
 										}
@@ -140,15 +143,10 @@
 
 									};								
 						document.getElementById("text1").innerHTML = "Player picked " + playerChoice;
-						setTimeout(1000);
 						document.getElementById("text2").innerHTML = "Computer picked " + compChoice;
-						setTimeout(1000);
 						document.getElementById("text3").innerHTML = results;
 			}
-
-						
+			endbutton[0].addEventListener("click", reset);
 		</script>
 	</body>
-
-
 </html>
