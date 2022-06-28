@@ -5,6 +5,9 @@
 		<meta name="viewport" content="width=device-width, initial scale=1.0">
 		<title>Rock Paper Scissors!</title>
 	</head>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+	</style>
 	<body>
 		<div class="master">
 			<div class="display">
@@ -14,22 +17,22 @@
 			</div>
 			<div class="select">
 				<div class="child">
-					<button onclick="clicked('Rock')" class="button">Rock</button>
+					<div type="button" onclick="clicked('Rock')" class="button">Rock</div>
 					<img src="arrow.png" class="arrows"></img>
 				</div>
 				<div class="child">
-					<button onclick="clicked('Paper')" class="button">Paper</button>
+					<div onclick="clicked('Paper')" class="button" type="button">Paper</div>
 					<img src="arrow.png" class="arrows"></img>
 				</div>
 				<div class="child">
-					<button onclick="clicked('Scissors')" class="button">Scissors</button>
+					<div type="button" onclick="clicked('Scissors')" class="button">Scissors</div>
 					<img src="arrow.png" class="arrows"></img>
 				</div>
 			
 			</div>
 			<div class="scores">
 				<div class="score-card">
-					<h3>Player 1</h3>
+					<h3>Player</h3>
 					<div class="progress-bar">
 						<div id="p1" class="points"></div>
 					</div>
@@ -40,6 +43,15 @@
 						<div id="cpu" class="points"></div>
 					</div>
 				</div>
+			</div>
+			<div id="myModal" class="modal">
+
+ 			 <!-- Modal content -->
+  				<div class="modal-content">
+    					<span class="close">&times;</span>
+    					<div class="Winner"></div>
+  				</div>
+
 			</div>
 		</div>
 		
@@ -96,8 +108,11 @@
 										results = "Player Wins this Round!";
 										text3.style.color = "green";
 										if (width + 20 == 100) {
-														width == 100;
-														alert("YOU WON!")
+														width = 100;
+														p1.style.width = width + "%";
+														var modal = document.getElementById("myModal");
+														modal.style.display = "block";
+														document.getElementById("Winner").innerHHTML = "You Win! Huzzah!";
 
 										} else {
 												width += 20;
@@ -113,8 +128,11 @@
 										results = "Computer Wins this Round!";
 										text3.style.color = "red";
 										if (cwidth + 20 == 100) {
-														cwidth == 100;
-														alert("CPU WON!")
+														var modal = document.getElementById("myModal");
+														modal.style.display = "block";
+														cwidth = 100;
+														cpu.style.width = cwidth + "%";
+														document.getElementById("Winner").innerHHTML = "Computer Wins! Boohoo!";
 										} else {
 												cwidth += 20;
 										}
